@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+    <h2 class="top">Wybierz pracownika, którego chcesz usunąć</h2>
+
+    <div class="row top">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+
+            {% for label, messages in app.flashes %}
+                {% for message in messages %}
+                    <div class="alert alert-success alert-dismissible sukces">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+
+
+            {% for rekord in stronaW %}
+
+                <div>
+                    <h2><a class="rekordPracownik" href="{{ path('delete_pracownik', {'id':rekord.id}) }}">{{ rekord.tytul }}</a></h2>
+                    <hr>
+                </div>
+
+            {% endfor %}
+
+            <div class="navigation bottN">
+                {{ knp_pagination_render(stronaW) }}
+            </div>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+
+{% endblock %}

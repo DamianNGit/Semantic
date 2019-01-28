@@ -1,0 +1,33 @@
+{% extends 'default/index.html.twig' %}
+
+
+{% block body %}
+
+    <div class="row top">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+
+            {% for label, messages in app.flashes %}
+                {% for message in messages %}
+                    <div class="alert alert-success alert-dismissible sukces">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+
+            <h3>{{ strona.tytul }}</h3>
+
+            <div class="top">
+                {% autoescape 'html' %}
+                <p>{{ strona.tresc|raw }}</p>
+                {% endautoescape %}
+                <hr>
+                <span class="float-right bottN">Dodano: {{ strona.dataStworzenia|date('d-m-Y \\-\\ H:i:s') }}  {% if strona.autor %} przez: {{ strona.autor.imie }} {{ strona.autor.nazwisko }}{% endif %}</span>
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+
+
+{% endblock %}

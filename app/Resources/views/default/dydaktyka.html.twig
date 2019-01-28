@@ -1,0 +1,44 @@
+{% extends 'default/index.html.twig' %}
+
+
+{% block body %}
+
+    <div class="row top">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+
+            {% for label, messages in app.flashes %}
+                {% for message in messages %}
+                    <div class="alert alert-success alert-dismissible sukces">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+
+            <h3>{{ post.tytul }}</h3>
+
+            <div class="top">
+                {% autoescape 'html' %}
+                    <p>{{ post.tresc|raw }}</p>
+                {% endautoescape %}
+                <hr>
+                <span class="float-right bottN">{% if post.autor %} Dodano przez: {{ post.autor.imie }} {{ post.autor.nazwisko }}{% endif %}</span>
+
+                {% if app.user %}
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('edit_dydaktyka') }}">
+                            <button type="button" class="btn btn-sm buttonRed top">
+                                <i class="fas fa-pencil-alt"></i>
+                                Edytuj
+                            </button>
+                        </a>
+                    {% endif %}
+                {% endif %}
+
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+
+{% endblock %}

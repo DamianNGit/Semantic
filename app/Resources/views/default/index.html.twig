@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-sm-4">
+
+            <h3 class="top">Pracownicy</h3>
+
+            {% for rekord in strona %}
+
+                <div>
+                    <h2><a class="rekordPracownik" href="{{ path('show_pracownik', {'id':rekord.id}) }}">{{ rekord.tytul }}</a></h2>
+                <hr>
+                </div>
+
+            {% endfor %}
+
+            <div class="navigation bottN">
+                {{ knp_pagination_render(strona) }}
+            </div>
+
+        </div>
+        <div class="col-sm-8 top">
+
+            <h3 class="ogloszenia">OGŁOSZENIA</h3>
+
+            <p class="naglowek top">Praktyki Erasmus+</p>
+            <p>Szanowne studentki i szanowni studenci,</p>
+            <span>w dniach 1-30 czerwca 2018 prowadzona jest rekrutacja na wyjazdy na praktyki w ramach programu Erasmus+.
+            Dokumenty odnośnie rekrutacji dostępne są na stronie http://www.uwb.edu.pl/formularze.</span>
+            <p>Szczegóły na stronie: http://www.uwb.edu.pl/formularze/</p>
+
+            <hr>
+
+            <p class="naglowek top">XIV Letnie Praktyki Badawcze w PAN</p>
+            <span>Trwają zapisy na XIV Letnie Praktyki Badawcze – wakacyjne interdyscyplinarne warsztaty dla
+                studentów i doktorantów, których celem jest wykorzystanie matematycznego sposobu myślenia do
+                rozwiązywania rzeczywistych problemów firm i instytucji. W poprzednich latach zrealizowaliśmy
+                projekty m.in. dla Narodowego Banku Polskiego, Urzędu Komunikacji Elektronicznej, Casinos Poland,
+                Polskiej Grupy Zbrojeniowej i wielu innych.</span>
+            <p>Szczegóły na stronie: http://www.praktyki.waw.pl/</p>
+
+            <hr>
+            <p class="naglowek top">Międzynarodowe zmagania matematyczne</p>
+            <p>2018-03-24, godz. 10:00, Wydział Matematyki i Informatyki, sala 2048</p>
+            <span>W najbliższa sobotę 24 marca 2018 r. w kampusie Uniwersytetu w Białymstoku odbędzie się finał
+                Olimpiady Matematycznej Pogranicza i Konkursu Matematycznego Pogranicza. Wezmą w nim udział uczniowie
+                z Polski i Białorusi. Zawody zaczną się o godzinie 10:00 w sali 2048, będą trwały trzy godziny,
+                a o godzinie 15:00 nastąpi rozdanie nagród.</span>
+            <div class="bottN"></div>
+
+        </div>
+    </div>
+
+{% endblock %}

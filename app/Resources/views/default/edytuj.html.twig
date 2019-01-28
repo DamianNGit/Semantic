@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h2 class="top">Edytuj pracownika</h2>
+
+    <div class="row top">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+
+            {{ form_start(stronaForm) }}
+            {{ form_widget(stronaForm) }}
+            <button class="btn btn-success" type="submit">Zapisz</button>
+            {{ form_end(stronaForm) }}
+
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+
+{% endblock %}

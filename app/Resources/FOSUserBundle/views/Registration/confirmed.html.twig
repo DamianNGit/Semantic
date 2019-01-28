@@ -1,0 +1,32 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+
+    <div class="top">
+
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-success alert-dismissible sukces">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+        <h3 class="registerOk">{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</h3>
+        {% if targetUrl %}
+            <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+        {% endif %}
+
+        <a href="{{ path('homepage') }}" role="button">
+            <button type="button" class="btn btn-md buttonRed top">
+                <i class="fa fa-home"></i>
+                Przejdź na stronę główną
+            </button>
+        </a>
+
+    </div>
+
+{% endblock fos_user_content %}

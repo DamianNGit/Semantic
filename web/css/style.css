@@ -1,0 +1,150 @@
+/* base.html.twig */
+
+*{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+}
+
+.clean{
+    clear: both;
+}
+
+body{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.boddy{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+header{
+
+}
+    .top{
+        margin-top: 20px;
+    }
+
+        .topLogo{
+            float: left;
+            display: inline-block;
+        }
+
+        .topWydzial{
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+            .wydzial{
+                color: #890E12;
+                margin-bottom: 0;
+                font-size: 32px;
+                font-weight: 600;
+                margin-top: 15px;
+            }
+
+            @media only screen and (max-width: 992px) {
+                .wydzial {
+                    font-size: 24px;
+                    margin-top: 25px;
+                }
+            }
+            @media only screen and (max-width: 768px){
+                .wydzial {
+                    font-size: 16px;
+                    margin-top: 35px;
+                }
+            }
+
+            @media only screen and (max-width: 460px){
+                .wydzial{
+                    margin-top: 0;
+                }
+            }
+
+            .uwb{
+                color: #504C4A;
+                font-size: 24px;
+            }
+
+            @media only screen and (max-width: 992px) {
+                .uwb{
+                    font-size: 18px;
+                }
+            }
+
+            @media only screen and (max-width: 768px){
+                .uwb {
+                    font-size: 16px;
+                }
+            }
+
+nav{
+
+}
+
+    .navColor{
+        background-color: #8c231b;
+    }
+
+    .colorN{
+        color: white;
+        text-align: center;
+    }
+
+/* index.html.twig */
+
+.borderL{
+    border-left: #8c231b dashed 1px;
+}
+
+    .rekordPracownik{
+        color: #444444;
+    }
+
+    .rekordPracownik:hover{
+        color: #444444;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    .ogloszenia{
+        font-weight: 700;
+        color: rgb(140,13,21);
+        font-size: 32px;
+    }
+
+    .naglowek{
+        border-left: 3px solid #890c15;
+        font-size: 18px;
+        padding-left: 8px;
+    }
+
+    .bottN{
+        margin-bottom: 70px;
+    }
+
+/* register */
+
+.bot{
+    margin-bottom: 40px;
+}
+
+/* confirmation register */
+.registerOk{
+    //font-weight: 700;
+}
+
+.buttonRed{
+    background-color: #8c231b;
+    color: #FFFFFF;
+}
+
+/* pracownik.html.twig */
+.sukces{
+    font-weight: 400;
+}

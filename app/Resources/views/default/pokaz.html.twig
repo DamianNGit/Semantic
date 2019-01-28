@@ -1,0 +1,15 @@
+{% extends 'default/index.html.twig' %}
+
+
+{% block body %}
+
+{% for rekord in dydaktyka %}
+
+    <div>
+        <h2><a class="rekordPracownik">{{ rekord.tytul }}</a></h2>
+        <hr>
+    </div>
+
+{% endfor %}
+
+{% endblock %}

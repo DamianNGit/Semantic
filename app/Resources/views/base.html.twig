@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pl">
+<!-- prefix="cos http://cos.pl" -->
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}UwB{% endblock %}</title>
+
+        {% block stylesheets %}
+
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+            <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i,800&amp;subset=latin-ext" rel="stylesheet">
+
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta http-equiv="X-Ua-Compatible" content="IE=edge,chrome=1">
+
+
+            <meta name="description" content="Strona wydziału matematyki i informatyki UWB.">
+            <meta name="keywords" content="uwb, informatyka, matematyka, wydział">
+            <meta name="author" content="Damian Niemyjski">
+
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+            <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+
+            <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+        {% endblock %}
+
+    </head>
+    <body>
+        <div class="container-fluid boddy">
+            <div class="row boddy">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10">
+                    <div class="float-right">
+                        {% if app.user %}
+                            Zalogowany jako: <i class="fas fa-user"></i> {{ app.user }}
+                            {% if is_granted('ROLE_ADMIN') %} |
+                                <a href="{{ path('add_pracownik') }}"><i class="fas fa-plus"></i> Dodaj pracownika</a> |
+                                <a href="{{ path('chose_pracownik') }}"><i class="fas fa-pencil-alt"></i> Edytuj pracownika</a> |
+                                <a href="{{ path('chosetodelete_pracownik') }}"><i class="fas fa-times"></i> Usuń pracownika</a> |
+                                <a href="{{ path('admin') }}"><i class="fas fa-user-edit"></i> Panel administracyjny </a>
+                            {% endif %} |
+                            <a href="{{ path('fos_user_security_logout') }}"><i class="fas fa-sign-out-alt"></i> Wyloguj</a>
+                        {% else %}
+                            <a href="{{ path('fos_user_security_login') }}"><i class="fas fa-sign-in-alt"></i> Zaloguj się</a> |
+                            <a href="{{ path('fos_user_registration_register') }}"><i class="fas fa-user-plus"></i> Zarejestruj się</a>
+                        {% endif %}
+                    </div>
+                    <header>
+                        <div class="top">
+                            <figure class="topLogo">
+                                <img class="img-fluid" src="{{ asset('img/ii.png') }}" alt="UWB">
+                                <div class="clean"></div>
+                            </figure>
+                            <div class="topWydzial">
+                                <p class="wydzial">ZAKŁAD SZTUCZNEJ  INTELIGENCJI I MULTIMEDIÓW</p>
+                                <p class="uwb">INSTYTUT INFORMATYKI</p>
+                            </div>
+                            <div class="clean"></div>
+                        </div>
+                    </header>
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+
+            <nav class="navbar navbar-expand-md navbar-dark navColor">
+
+                <a class="navbar-brand" href="{{ path('homepage') }}">ZAKŁAD</a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="navbar-brand" href="{{ path('show_tematyka') }}">TEMATYKA BADAWCZA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="navbar-brand" href="{{ path('show_dydaktyka') }}">DYDAKTYKA</a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="navbar-brand" href="http://ii.uwb.edu.pl/index2.php">INSTYTUT</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="navbar-brand" href="http://matinf.uwb.edu.pl">WYDZIAŁ</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="row boddy">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10">
+
+                    {% block body %}{% endblock %}
+                    {#{% block javascripts %}{% endblock %}#}
+
+                </div>
+                <div class="clean"></div>
+                <div class="col-sm-1"></div>
+            </div>
+
+            <footer class="navbar navbar-expand-md fixed-bottom navColor">
+                <div class="container-fluid justify-content-center">
+                    <span class="colorN"> Wykonał: Damian Niemyjski &copy; 2018</span>
+                </div>
+            </footer>
+
+        </div>
+    </body>
+</html>
